@@ -15,6 +15,6 @@ done
 # brew install gnuplot --latex --pdf --qt --with-x --without-emacs
 echo "Completed!!"
 echo "Run at a later time."
-echo "https://www.reddit.com/r/hackintosh_ja/comments/3hytyc/el/"
 echo "sudo nvram -d boot-args"
 echo "sudo reboot"
+echo "https://www.reddit.com/r/hackintosh_ja/comments/3hytyc/el/"
