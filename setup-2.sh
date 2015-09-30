@@ -9,7 +9,7 @@ brew install caskroom/cask/brew-cask
 brew cask doctor >> brew-cask-doctor.txt
 
 brew install automake cmake cowsay dpkg ffmpeg fish fortune ghostscript git highlight imagemagick
-brew install libtool lua nkf openssl readline ricty sl sqlite toilet tree wget zsh
+brew install libtool lua nkf openssl readline ricty sl sqlite toilet tree wget zsh zsh-completions
 
 git clone git@github.com:Code-Hex/zshrc.git
 cp zshrc/.zshrc zshrc/coin.wav zshrc/jump.wav zshrc/exit.wav ./
