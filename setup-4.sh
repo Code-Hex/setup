@@ -11,7 +11,7 @@ for item in ${PLMLIST[@]}; do
 	cpm install --global $item
 done
 
-CASKLIST=(0xed 1password appcleaner aquaterm coteditor cyberduck dropbox font-source-code-pro google-chrome skype sublime-text3 torbrowser virtualbox vlc wireshark xquartz)
+CASKLIST=(0xed 1password appcleaner aquaterm coteditor cyberduck dropbox font-source-code-pro google-chrome skype sublime-text3 torbrowser virtualbox vlc xquartz wireshark)
 
 for item in ${CASKLIST[@]}; do
 	brew cask install $item
