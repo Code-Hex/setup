@@ -8,6 +8,11 @@ brew update
 brew install caskroom/cask/brew-cask
 brew cask doctor >> brew-cask-doctor.txt
 
+brew tap caskroom/homebrew-versions
+brew tap caskroom/fonts
+brew tap sanemat/font
+brew tap homebrew/science
+
 brew install automake cmake cowsay dpkg ffmpeg fish fortune ghostscript git highlight imagemagick
 brew install libtool lua nkf openssl readline ricty sl sqlite toilet tree wget zsh zsh-completions
 
