@@ -17,6 +17,10 @@ for item in ${CASKLIST[@]}; do
 	brew cask install $item
 done
 
+dir=`ls /usr/local/Cellar/ricty | egrep '\d\.\d\.\d'`
+cp -f /usr/local/Cellar/ricty/${dir}/share/fonts/Ricty*.ttf ~/Library/Fonts/
+fc-cache -vf
+
 # brew install gnuplot --latex --pdf --qt --with-x --without-emacs
 echo "Completed!!"
 echo "Run at a later time."
