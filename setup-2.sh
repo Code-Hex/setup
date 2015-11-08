@@ -1,29 +1,35 @@
 #!/usr/bin/sh
 
 set -eux
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor >> brew-doctor.txt
-brew update
 
-brew install caskroom/cask/brew-cask
-brew cask doctor >> brew-cask-doctor.txt
+git clone git://github.com/tokuhirom/plenv.git ~/.plenv
+git clone git://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build/
+plenv install 5.20.2
+plenv rehash
+plenv global 5.20.2
+plenv rehash
+plenv install-cpanm
 
-brew tap caskroom/homebrew-versions
-brew tap caskroom/fonts
-brew tap sanemat/font
-brew tap homebrew/science
+cpanm -nq git://github.com/miyagawa/cpanminus.git@menlo
+cpanm -nq git://github.com/shoichikaji/cpm.git
 
-brew install automake cmake cowsay dpkg ffmpeg fish fortune ghostscript git highlight imagemagick
-brew install libtool lua nkf openssl readline ricty sl sqlite toilet tree wget zsh zsh-completions
+PLMLIST=(LWP::UserAgent Mojolicious Carton Caroline Reply Term::ReadLine::EditLine)
 
-git clone https://github.com/Code-Hex/zshrc.git
-cp zshrc/.zshrc zshrc/coin.wav zshrc/jump.wav zshrc/exit.wav ./
+for item in ${PLMLIST[@]}; do
+	cpm install --global $item
+done
 
-git clone https://github.com/Code-Hex/vimrc.git
-cp vimrc/.vimrc ./
+CASKLIST=(0xed appcleaner aquaterm cyberduck dropbox font-source-code-pro google-chrome sublime-text3 xquartz)
 
-git clone https://github.com/tomasr/molokai ./.vim/
+for item in ${CASKLIST[@]}; do
+	brew cask install $item
+done
 
-chsh -s /bin/zsh
+dir=`ls /usr/local/Cellar/ricty | egrep '\d\.\d\.\d'`
+cp -f /usr/local/Cellar/ricty/${dir}/share/fonts/Ricty*.ttf ~/Library/Fonts/
+fc-cache -vf
 
-exec $SHELL -l
+# brew install gnuplot --latex --pdf --qt --with-x --without-emacs
+echo "Completed!!"
+
+echo "https://www.reddit.com/r/hackintosh_ja/comments/3hytyc/el/"
