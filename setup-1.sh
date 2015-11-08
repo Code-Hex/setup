@@ -31,6 +31,9 @@ current="$(cd $(dirname $0) && pwd)"
 
 git clone https://github.com/Code-Hex/vimrc.git
 cp vimrc/.vimrc ./
+
+# Setup current directory
+cp ${current}/Terminal/dircolors.256dark ./
 cp -r ${current}/Terminal/.vim/colors ./.vim/
 
 # git clone https://github.com/tomasr/molokai ./.vim/
@@ -41,11 +44,12 @@ cp -r ${current}/Terminal/.vim/colors ./.vim/
 chsh -s /bin/zsh
 
 # clean
-rm ./.vim/README.md
 rm -rf zshrc
 rm -rf vimrc
-rm -rf molokai
-
+# rm ./.vim/README.md
+# rm -rf molokai
+open ${current}/Terminal/Solarized\ Darcula.terminal
+open ${current}/Terminal/My\ Term.terminal
 echo "Cleaned"
 
 exec $SHELL -l
